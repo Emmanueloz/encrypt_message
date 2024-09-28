@@ -8,7 +8,8 @@ def menu():
     print("2. Set key")
     print("3. Encrypt message")
     print("4. Decrypt message")
-    print("5. Exit")
+    print("5. Get key")
+    print("6. Exit")
     choice = input("Enter your choice: ")
 
     return choice
@@ -33,7 +34,7 @@ def is_empty_key():
 
 while True:
     choice = menu()
-    if choice not in ["1", "2", "3", "4", "5"]:
+    if choice not in ["1", "2", "3", "4", "5", "6"]:
         print("Invalid choice")
         continue
 
@@ -62,5 +63,10 @@ while True:
         print(f"Decrypted message: {decrypted}")
 
     elif choice == "5":
+        if is_empty_key():
+            print("Key not set")
+            continue
+        print(f"Key: {global_key}")
+    elif choice == "6":
         print("Exiting...")
         break
